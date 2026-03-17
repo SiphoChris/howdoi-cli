@@ -25,11 +25,18 @@ jobs:
       - name: Build core
         run: bun run build:core
 
+      # --version and --help work without any knowledge base installed
       - name: Smoke test — version
         run: node packages/core/dist/cli.js --version
 
       - name: Smoke test — help
         run: node packages/core/dist/cli.js --help
+
+      # Seed unix data so the remaining tests have something to search
+      - name: Seed unix data for smoke tests
+        run: |
+          mkdir -p ~/.local/share/howdoi/unix
+          cp -r packages/unix/data/. ~/.local/share/howdoi/unix/
 
       - name: Smoke test — direct tool lookup
         run: node packages/core/dist/cli.js grep

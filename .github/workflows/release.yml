@@ -33,6 +33,9 @@ jobs:
       - name: Smoke test before publishing
         run: |
           node packages/core/dist/cli.js --version
+          node packages/core/dist/cli.js --help
+          mkdir -p ~/.local/share/howdoi/unix
+          cp -r packages/unix/data/. ~/.local/share/howdoi/unix/
           node packages/core/dist/cli.js grep
           node packages/core/dist/cli.js --list
 

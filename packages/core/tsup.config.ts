@@ -15,12 +15,12 @@ export default defineConfig({
   minify: false,
   bundle: true,
   external: ["@inquirer/prompts"],
-  // Inline the version string at build time — no runtime file reads needed
+  // Replace the placeholder string — tsup define needs the exact
+  // quoted string as it appears in source to do the substitution
   define: {
-    "__HOWDOI_VERSION__": JSON.stringify(pkg.version),
+    '"__HOWDOI_VERSION__"': JSON.stringify(pkg.version),
   },
   onSuccess: async () => {
-    // Copy package.json into dist so any future runtime reads also work
     cpSync("./package.json", "./dist/package.json");
     chmodSync("dist/cli.js", 0o755);
     console.log(`✓ Built howdoi v${pkg.version}`);
