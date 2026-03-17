@@ -1,6 +1,5 @@
 import { defineConfig } from "tsup";
-import { cpSync, chmodSync } from "fs";
-import { readFileSync } from "fs";
+import { cpSync, chmodSync, readFileSync } from "fs";
 
 const pkg = JSON.parse(readFileSync("./package.json", "utf-8"));
 
@@ -15,10 +14,8 @@ export default defineConfig({
   minify: false,
   bundle: true,
   external: ["@inquirer/prompts"],
-  // Replace the placeholder string — tsup define needs the exact
-  // quoted string as it appears in source to do the substitution
   define: {
-    '"__HOWDOI_VERSION__"': JSON.stringify(pkg.version),
+    __HOWDOI_VERSION__: JSON.stringify(pkg.version), // ← no outer quotes on the key
   },
   onSuccess: async () => {
     cpSync("./package.json", "./dist/package.json");
