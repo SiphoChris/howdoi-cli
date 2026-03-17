@@ -21,12 +21,17 @@
     "dataDir": "data"
   },
   "dependencies": {
-    "@howdoi-cli/core": "^1.0.1"
+    "@howdoi-cli/core": "^1.0.2"
   },
   "engines": {
     "node": ">=18.0.0"
   },
-  "keywords": ["cli", "ssh", "terminal", "howdoi"],
+  "keywords": [
+    "cli",
+    "ssh",
+    "terminal",
+    "howdoi"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",

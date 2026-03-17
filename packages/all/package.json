@@ -14,7 +14,7 @@
     "publish:npm": "npm publish"
   },
   "dependencies": {
-    "@howdoi-cli/core": "^1.0.1",
+    "@howdoi-cli/core": "^1.0.2",
     "@howdoi-cli/unix": "^1.0.0",
     "@howdoi-cli/git": "^1.0.0",
     "@howdoi-cli/ssh": "^1.0.0",
@@ -24,7 +24,15 @@
   "engines": {
     "node": ">=18.0.0"
   },
-  "keywords": ["cli", "unix", "git", "ssh", "docker", "terminal", "howdoi"],
+  "keywords": [
+    "cli",
+    "unix",
+    "git",
+    "ssh",
+    "docker",
+    "terminal",
+    "howdoi"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
