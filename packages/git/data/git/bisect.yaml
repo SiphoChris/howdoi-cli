@@ -1,0 +1,29 @@
+tool: git bisect
+category: git
+description: Binary search through commits to find the one that introduced a bug
+package: "@howdoi-cli/git"
+intents:
+  - find which commit introduced a bug
+  - debug when a bug was introduced
+  - binary search commits
+  - find bad commit
+  - hunt down regression
+examples:
+  - intent: find which commit introduced a bug
+    title: Start a bisect session
+    command: git bisect start
+  - intent: find which commit introduced a bug
+    title: Mark the current commit as bad
+    command: git bisect bad
+  - intent: find which commit introduced a bug
+    title: Mark a known-good commit (hash or tag)
+    command: git bisect good v1.0.0
+  - intent: find which commit introduced a bug
+    title: Mark current commit as bad during bisect
+    command: git bisect bad
+  - intent: find which commit introduced a bug
+    title: Mark current commit as good during bisect
+    command: git bisect good
+  - intent: find which commit introduced a bug
+    title: Finish bisect and return to original HEAD
+    command: git bisect reset

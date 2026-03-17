@@ -1,0 +1,27 @@
+tool: mkdir
+category: file-management
+description: Create directories
+package: "@howdoi-cli/unix"
+intents:
+  - create directory
+  - make folder
+  - create nested directories
+  - make directory structure
+  - create multiple directories
+  - make new folder
+examples:
+  - intent: create directory
+    title: Create a directory
+    command: mkdir my-folder
+  - intent: create nested directories
+    title: Create nested directories in one command
+    command: mkdir -p src/components/ui
+  - intent: create multiple directories
+    title: Create multiple directories at once
+    command: mkdir dir1 dir2 dir3
+  - intent: create nested directories
+    title: Create a full project structure
+    command: mkdir -p src/{components,hooks,utils,types}
+  - intent: create directory
+    title: Create directory and show what was created
+    command: mkdir -v my-folder

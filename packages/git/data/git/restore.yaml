@@ -1,0 +1,28 @@
+tool: git restore
+category: git
+description: Restore working tree files to a known state
+package: "@howdoi-cli/git"
+intents:
+  - discard changes in file
+  - undo changes to file
+  - revert file to last commit
+  - restore deleted file
+  - unstage file
+  - undo edits in file
+  - get file back from commit
+examples:
+  - intent: discard changes in file
+    title: Discard all changes in a file (restore from last commit)
+    command: git restore path/to/file.ts
+  - intent: discard changes in file
+    title: Discard all unstaged changes in working directory
+    command: git restore .
+  - intent: unstage file
+    title: Unstage a file (keep changes in working directory)
+    command: git restore --staged path/to/file.ts
+  - intent: get file back from commit
+    title: Restore a file from a specific commit
+    command: git restore --source=abc1234 path/to/file.ts
+  - intent: restore deleted file
+    title: Restore a file that was deleted
+    command: git restore path/to/deleted-file.ts

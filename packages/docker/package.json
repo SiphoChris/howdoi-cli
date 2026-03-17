@@ -1,0 +1,41 @@
+{
+  "name": "@howdoi-cli/docker",
+  "version": "2.0.0",
+  "description": "Docker knowledge base for howdoi \u2014 containers, images, volumes, and more.",
+  "type": "module",
+  "files": [
+    "data",
+    "postinstall.mjs",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "postinstall": "node postinstall.mjs",
+    "publish:npm": "npm publish"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "howdoi": {
+    "type": "knowledge-base",
+    "dataDir": "data"
+  },
+  "dependencies": {
+    "@howdoi-cli/core": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "cli",
+    "docker",
+    "containers",
+    "terminal",
+    "howdoi"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SiphoChris/howdoi-cli"
+  }
+}

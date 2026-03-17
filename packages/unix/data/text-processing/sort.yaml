@@ -1,0 +1,42 @@
+tool: sort
+category: text-processing
+description: Sort lines of text files
+package: "@howdoi-cli/unix"
+intents:
+  - sort lines in file
+  - sort file alphabetically
+  - sort numbers in file
+  - sort file in reverse
+  - sort by column
+  - sort csv by column
+  - sort and remove duplicates
+  - deduplicate sorted file
+  - sort file numerically
+  - sort output of command
+  - sort by file size
+  - reverse sort
+examples:
+  - intent: sort lines in file
+    title: Sort lines alphabetically
+    command: sort file.txt
+  - intent: sort file in reverse
+    title: Sort in reverse order
+    command: sort -r file.txt
+  - intent: sort file numerically
+    title: Sort numerically (not lexicographically)
+    command: sort -n numbers.txt
+  - intent: sort by column
+    title: Sort by the second column
+    command: sort -k2 file.txt
+  - intent: sort csv by column
+    title: Sort a CSV by the third column numerically
+    command: sort -t',' -k3 -n file.csv
+  - intent: sort and remove duplicates
+    title: Sort and remove duplicate lines
+    command: sort -u file.txt
+  - intent: sort output of command
+    title: Sort ls output by file size
+    command: ls -la | sort -k5 -n
+  - intent: sort file numerically
+    title: Sort numerically in reverse (largest first)
+    command: sort -rn numbers.txt

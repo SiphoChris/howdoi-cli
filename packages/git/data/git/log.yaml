@@ -1,0 +1,52 @@
+tool: git log
+category: git
+description: Show commit history
+package: "@howdoi-cli/git"
+intents:
+  - see commit history
+  - show git log
+  - view recent commits
+  - see who made changes
+  - show commits by author
+  - find when something was changed
+  - see commit messages
+  - show commits on a file
+  - pretty print git log
+  - show one line commit history
+  - see last n commits
+  - view branch history
+  - see git logs
+  - git log
+  - show log
+  - view git log
+  - show git history
+  - see recent commits
+  - check commit history
+examples:
+  - intent: see commit history
+    title: Show full commit history
+    command: git log
+  - intent: show one line commit history
+    title: Show compact one-line log
+    command: git log --oneline
+  - intent: see last n commits
+    title: Show last 10 commits
+    command: git log --oneline -10
+  - intent: show commits by author
+    title: Show commits by a specific author
+    command: git log --author="Sipho"
+  - intent: show commits on a file
+    title: Show all commits that touched a file
+    command: git log --oneline -- path/to/file.ts
+  - intent: pretty print git log
+    title: Pretty log with graph and branches
+    command: git log --oneline --graph --decorate --all
+  - intent: find when something was changed
+    title: Search commits by message keyword
+    command: git log --oneline --grep="fix"
+  - intent: find when something was changed
+    title: Show commits that changed a specific string
+    command: git log -S "functionName" --oneline
+  - intent: see commit history
+    title: Show log with dates and authors in one line
+    command: git log --pretty=format:"%h %ad %an %s" --date=short

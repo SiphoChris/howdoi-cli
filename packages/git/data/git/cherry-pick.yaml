@@ -1,0 +1,27 @@
+tool: git cherry-pick
+category: git
+description: Apply specific commits from one branch onto another
+package: "@howdoi-cli/git"
+intents:
+  - apply commit from another branch
+  - copy commit to current branch
+  - bring specific commit over
+  - cherry pick a fix from another branch
+  - apply a single commit
+  - port commit between branches
+examples:
+  - intent: apply commit from another branch
+    title: Apply a specific commit by hash
+    command: git cherry-pick abc1234
+  - intent: apply commit from another branch
+    title: Apply a commit without automatically committing
+    command: git cherry-pick --no-commit abc1234
+  - intent: apply commit from another branch
+    title: Cherry-pick a range of commits
+    command: git cherry-pick abc1234..def5678
+  - intent: apply commit from another branch
+    title: Continue cherry-pick after resolving conflicts
+    command: git cherry-pick --continue
+  - intent: apply commit from another branch
+    title: Abort a cherry-pick in progress
+    command: git cherry-pick --abort

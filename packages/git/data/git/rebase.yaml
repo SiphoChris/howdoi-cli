@@ -1,0 +1,37 @@
+tool: git rebase
+category: git
+description: Reapply commits on top of another base
+package: "@howdoi-cli/git"
+intents:
+  - rebase branch onto main
+  - update branch with latest main
+  - squash commits
+  - clean up commit history
+  - combine multiple commits
+  - edit commit messages
+  - reorder commits
+  - interactive rebase
+  - rewrite history
+  - merge commits together
+examples:
+  - intent: rebase branch onto main
+    title: Rebase current branch onto main
+    command: git rebase main
+  - intent: update branch with latest main
+    title: Fetch and rebase onto origin/main
+    command: git fetch origin && git rebase origin/main
+  - intent: interactive rebase
+    title: Interactively rebase last 3 commits
+    command: git rebase -i HEAD~3
+  - intent: squash commits
+    title: Squash last 4 commits (change 'pick' to 'squash' in editor)
+    command: git rebase -i HEAD~4
+  - intent: edit commit messages
+    title: Reword the last 2 commit messages
+    command: git rebase -i HEAD~2
+  - intent: rebase branch onto main
+    title: Continue rebase after resolving conflicts
+    command: git rebase --continue
+  - intent: rebase branch onto main
+    title: Abort a rebase in progress
+    command: git rebase --abort

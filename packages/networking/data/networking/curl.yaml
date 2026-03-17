@@ -1,0 +1,57 @@
+tool: curl
+category: networking
+description: Transfer data to and from servers
+package: "@howdoi-cli/networking"
+intents:
+  - make http request
+  - send get request
+  - send post request
+  - send json data
+  - post json to api
+  - add headers to request
+  - download file with curl
+  - follow redirects
+  - send form data
+  - test api endpoint
+  - check http response code
+  - send delete request
+  - send put request
+  - authenticate with curl
+  - pass bearer token
+examples:
+  - intent: send get request
+    title: Simple GET request
+    command: curl https://api.example.com/users
+  - intent: send get request
+    title: GET request with pretty output
+    command: curl -s https://api.example.com/users | python3 -m json.tool
+  - intent: send post request
+    title: POST request with JSON body
+    command: curl -X POST https://api.example.com/users -H "Content-Type: application/json" -d '{"name":"Sipho"}'
+  - intent: post json to api
+    title: POST JSON from a file
+    command: curl -X POST https://api.example.com/users -H "Content-Type: application/json" -d @payload.json
+  - intent: add headers to request
+    title: Add custom headers to a request
+    command: curl -H "Authorization: Bearer TOKEN" -H "Accept: application/json" https://api.example.com
+  - intent: pass bearer token
+    title: Authenticate with a Bearer token
+    command: curl -H "Authorization: Bearer YOUR_TOKEN" https://api.example.com/protected
+  - intent: download file with curl
+    title: Download a file and save it
+    command: curl -o filename.zip https://example.com/file.zip
+  - intent: download file with curl
+    title: Download and keep the original filename
+    command: curl -O https://example.com/file.zip
+  - intent: check http response code
+    title: Show only the HTTP status code
+    command: curl -s -o /dev/null -w "%{http_code}" https://example.com
+  - intent: follow redirects
+    title: Follow HTTP redirects automatically
+    command: curl -L https://example.com
+  - intent: send delete request
+    title: Send a DELETE request
+    command: curl -X DELETE https://api.example.com/users/123
+  - intent: send put request
+    title: Send a PUT request with JSON
+    command: curl -X PUT https://api.example.com/users/123 -H "Content-Type: application/json" -d '{"name":"Updated"}'

@@ -1,0 +1,27 @@
+tool: mv
+category: file-management
+description: Move or rename files and directories
+package: "@howdoi-cli/unix"
+intents:
+  - move file to directory
+  - rename file
+  - rename directory
+  - move directory
+  - move multiple files
+  - relocate file
+examples:
+  - intent: rename file
+    title: Rename a file
+    command: mv old-name.txt new-name.txt
+  - intent: move file to directory
+    title: Move a file into a directory
+    command: mv file.txt /path/to/dir/
+  - intent: move directory
+    title: Move a directory to another location
+    command: mv src/ /path/to/new-location/
+  - intent: rename directory
+    title: Rename a directory
+    command: mv old-dir/ new-dir/
+  - intent: move multiple files
+    title: Move multiple files into a directory
+    command: mv file1.txt file2.txt /path/to/dir/

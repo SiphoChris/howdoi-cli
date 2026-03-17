@@ -1,0 +1,21 @@
+{
+  "name": "howdoi-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "bun run --filter '*' build",
+    "build:core": "bun run --cwd packages/core build",
+    "dev": "bun run --cwd packages/core dev",
+    "publish:all": "bun run --filter '*' publish:npm",
+    "clean": "rm -rf packages/*/dist"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
+  }
+}

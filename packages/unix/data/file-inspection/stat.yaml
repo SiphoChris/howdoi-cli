@@ -1,0 +1,29 @@
+tool: stat
+category: file-inspection
+description: Display detailed file or filesystem status
+package: "@howdoi-cli/unix"
+intents:
+  - show file details
+  - get file metadata
+  - check file permissions
+  - see file creation date
+  - see file modification date
+  - check when file was last accessed
+  - get file size in bytes
+  - show inode information
+examples:
+  - intent: show file details
+    title: Show all details about a file
+    command: stat file.txt
+  - intent: show file details
+    title: Show details about a directory
+    command: stat dir/
+  - intent: get file size in bytes
+    title: Show only the file size in bytes
+    command: stat -c %s file.txt
+  - intent: see file modification date
+    title: Show only the modification time
+    command: stat -c %y file.txt
+  - intent: check file permissions
+    title: Show only the file permissions (octal)
+    command: stat -c %a file.txt

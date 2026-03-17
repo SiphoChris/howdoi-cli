@@ -1,0 +1,36 @@
+tool: git reset
+category: git
+description: Undo commits or unstage changes
+package: "@howdoi-cli/git"
+intents:
+  - undo last commit
+  - unstage file
+  - undo staged changes
+  - go back to previous commit
+  - remove file from staging
+  - undo commits but keep changes
+  - hard reset to commit
+  - discard all local changes
+  - undo multiple commits
+examples:
+  - intent: undo last commit
+    title: Undo last commit but keep changes staged
+    command: git reset --soft HEAD~1
+  - intent: undo last commit
+    title: Undo last commit and unstage changes (keep files)
+    command: git reset HEAD~1
+  - intent: discard all local changes
+    title: Hard reset — undo commit AND discard all changes
+    command: git reset --hard HEAD~1
+  - intent: unstage file
+    title: Unstage a specific file
+    command: git reset HEAD path/to/file.ts
+  - intent: go back to previous commit
+    title: Reset to a specific commit hash
+    command: git reset --hard abc1234
+  - intent: undo commits but keep changes
+    title: Undo last 3 commits, keep all changes unstaged
+    command: git reset HEAD~3
+  - intent: discard all local changes
+    title: Discard ALL local changes and match remote
+    command: git reset --hard origin/main

@@ -1,0 +1,32 @@
+tool: git reflog
+category: git
+description: Show a log of all local reference updates (your safety net)
+package: "@howdoi-cli/git"
+intents:
+  - recover lost commit
+  - undo bad reset
+  - find deleted branch
+  - recover after hard reset
+  - see all recent git actions
+  - get back lost work
+  - undo accidental reset
+  - find where head was before
+examples:
+  - intent: see all recent git actions
+    title: Show the full reflog
+    command: git reflog
+  - intent: recover lost commit
+    title: Find the hash of a lost commit, then check it out
+    command: git reflog
+  - intent: undo bad reset
+    title: Recover from a bad hard reset (find old HEAD hash first)
+    command: git reset --hard HEAD@{2}
+  - intent: find deleted branch
+    title: Look through reflog to find a deleted branch tip
+    command: git reflog | grep "branch-name"
+  - intent: see all recent git actions
+    title: Show reflog with relative timestamps
+    command: git reflog --relative-date
+  - intent: recover lost commit
+    title: Create a new branch from a lost commit
+    command: git branch recovered-branch HEAD@{4}

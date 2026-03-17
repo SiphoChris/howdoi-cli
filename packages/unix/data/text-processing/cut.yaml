@@ -1,0 +1,28 @@
+tool: cut
+category: text-processing
+description: Extract columns or fields from lines of text
+package: "@howdoi-cli/unix"
+intents:
+  - extract column from text
+  - cut field from delimited file
+  - get first column from csv
+  - extract characters from line
+  - split line and get field
+  - extract part of each line
+  - get column by delimiter
+examples:
+  - intent: get first column from csv
+    title: Extract the first column from a CSV
+    command: cut -d',' -f1 file.csv
+  - intent: cut field from delimited file
+    title: Extract fields 1 and 3 from a colon-delimited file
+    command: cut -d':' -f1,3 /etc/passwd
+  - intent: extract characters from line
+    title: Extract characters 1 through 10 from each line
+    command: cut -c1-10 file.txt
+  - intent: extract column from text
+    title: Extract second field from tab-separated output
+    command: cut -f2 file.tsv
+  - intent: get first column from csv
+    title: Extract columns 2 through 4 from CSV
+    command: cut -d',' -f2-4 file.csv

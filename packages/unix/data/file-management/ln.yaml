@@ -1,0 +1,27 @@
+tool: ln
+category: file-management
+description: Create hard and symbolic links between files
+package: "@howdoi-cli/unix"
+intents:
+  - create symbolic link
+  - make symlink
+  - link file to another location
+  - create shortcut to file
+  - create hard link
+  - symlink a directory
+examples:
+  - intent: create symbolic link
+    title: Create a symbolic link to a file
+    command: ln -s /path/to/original file-link
+  - intent: symlink a directory
+    title: Create a symbolic link to a directory
+    command: ln -s /path/to/original dir-link
+  - intent: create symbolic link
+    title: Create symlink and overwrite if it already exists
+    command: ln -sf /path/to/original file-link
+  - intent: create hard link
+    title: Create a hard link to a file
+    command: ln original.txt hardlink.txt
+  - intent: create symbolic link
+    title: Symlink a binary into your PATH
+    command: ln -s /usr/local/bin/mytool ~/.local/bin/mytool

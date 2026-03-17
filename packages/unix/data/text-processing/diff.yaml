@@ -1,0 +1,32 @@
+tool: diff
+category: text-processing
+description: Compare files line by line
+package: "@howdoi-cli/unix"
+intents:
+  - compare two files
+  - show differences between files
+  - find what changed between files
+  - diff two files
+  - see what lines are different
+  - compare file versions
+  - unified diff output
+  - compare directories
+examples:
+  - intent: compare two files
+    title: Compare two files
+    command: diff file1.txt file2.txt
+  - intent: unified diff output
+    title: Unified diff format (git-style, easier to read)
+    command: diff -u file1.txt file2.txt
+  - intent: compare two files
+    title: Side-by-side comparison
+    command: diff --side-by-side file1.txt file2.txt
+  - intent: compare two files
+    title: Ignore whitespace differences
+    command: diff -w file1.txt file2.txt
+  - intent: compare directories
+    title: Compare two directories recursively
+    command: diff -r dir1/ dir2/
+  - intent: show differences between files
+    title: Show only whether files differ (no details)
+    command: diff -q file1.txt file2.txt
