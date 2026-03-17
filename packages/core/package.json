@@ -1,6 +1,6 @@
 {
   "name": "@howdoi-cli/core",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "The howdoi CLI engine — intent-based command discovery for the terminal.",
   "type": "module",
   "bin": {

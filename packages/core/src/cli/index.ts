@@ -10,9 +10,9 @@ import { CATEGORY_LABELS, CATEGORY_ORDER } from "../engine/types.js";
 import chalk from "chalk";
 import { select } from "@inquirer/prompts";
 
-// Version is inlined at build time via tsup banner replacement.
-// Fallback string is replaced by the actual version during build.
-const VERSION = "__HOWDOI_VERSION__";
+// HOWDOI_VERSION is a bare identifier replaced by tsup define at build time
+declare const HOWDOI_VERSION: string;
+const VERSION = HOWDOI_VERSION;
 
 async function promptSelect(
   message: string,
