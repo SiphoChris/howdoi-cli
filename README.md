@@ -25,7 +25,9 @@ $ howdoi search for string in file
 
 ## Install
 
-Install the core engine plus whatever knowledge bases you need:
+### Recommended — npm
+
+npm pulls in `@howdoi-cli/core` (the engine and binary) automatically as a transitive dependency. You never install core directly.
 
 ```bash
 # Unix/Linux commands
@@ -47,7 +49,26 @@ npm install -g @howdoi-cli/networking
 npm install -g @howdoi-cli/all
 ```
 
-`@howdoi-cli/core` (the engine and binary) is pulled in automatically as a dependency — you never install it directly.
+### Using bun
+
+bun does not automatically resolve transitive binaries for global packages, so core must be installed first:
+
+```bash
+# Install core first — this registers the howdoi binary
+bun add -g @howdoi-cli/core
+
+# Then install whichever knowledge bases you need
+bun add -g @howdoi-cli/unix
+bun add -g @howdoi-cli/git
+bun add -g @howdoi-cli/ssh
+```
+
+> **Note:** bun blocks postinstall scripts by default. You can trust them with `bun pm -g trust @howdoi-cli/unix`, but it's optional — howdoi discovers knowledge base data via node_modules as a fallback and works either way.
+
+> **Note:** Make sure bun's global bin directory is in your PATH. Run `bun pm -g bin` to find it, then add it to your shell config if needed:
+> ```bash
+> echo 'export PATH="$HOME/.bun/bin:$PATH"' >> ~/.bashrc && source ~/.bashrc
+> ```
 
 ---
 
@@ -70,10 +91,26 @@ howdoi docker
 # Browse interactively by category
 howdoi
 
-# List all available tools
+# List all available tools grouped by package
 howdoi --list
 howdoi --list unix
+howdoi --list git
+
+# Check installed version
 howdoi --version
+```
+
+---
+
+## Update
+
+```bash
+# npm
+npm update -g @howdoi-cli/all          # if installed via /all
+npm update -g @howdoi-cli/unix @howdoi-cli/git   # if installed individually
+
+# bun
+bun add -g @howdoi-cli/unix@latest
 ```
 
 ---
@@ -81,9 +118,12 @@ howdoi --version
 ## How it works
 
 Each knowledge base package ships YAML files containing intent phrases and examples.
-On install, data is copied to `~/.local/share/howdoi/`. The core engine loads all
-installed knowledge bases at runtime, builds a Fuse.js index, and matches your query
-against thousands of intent phrases — all locally, no network, instant startup.
+On install, data is copied to `~/.local/share/howdoi/` via a postinstall script.
+The core engine loads all installed knowledge bases at runtime, builds a Fuse.js index,
+and matches your query against intent phrases — all locally, no network, instant startup.
+
+If postinstall didn't run (e.g. blocked by bun), the engine falls back to discovering
+data directly from `node_modules`. Either way it works.
 
 ```
 howdoi add ssh key to agent
@@ -101,7 +141,7 @@ howdoi add ssh key to agent
 
 | Package | Description | Install |
 |---------|-------------|---------|
-| `@howdoi-cli/core` | Engine + binary (auto-installed) | — |
+| `@howdoi-cli/core` | Engine + binary (auto-installed via npm) | — |
 | `@howdoi-cli/unix` | File management, text processing, inspection | `npm i -g @howdoi-cli/unix` |
 | `@howdoi-cli/git` | Git workflows | `npm i -g @howdoi-cli/git` |
 | `@howdoi-cli/ssh` | SSH keys, agent, config, tunnels | `npm i -g @howdoi-cli/ssh` |
@@ -163,6 +203,8 @@ Then rebuild: `bun run build:core`
 4. Add it as a dependency in `packages/all/package.json`
 5. Submit a PR
 
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for full details.
+
 ### Intent writing tips
 
 - Write intents as someone would naturally say them, not as documentation
@@ -196,7 +238,7 @@ howdoi-cli/
 │   │   └── data/networking/
 │   └── all/                # @howdoi-cli/all (meta package)
 ├── scripts/
-│   └── postinstall.mjs     # Shared postinstall — copies data to XDG dir
+│   └── postinstall.mjs     # Copies data to ~/.local/share/howdoi/ on install
 └── package.json            # Bun workspace root
 ```
 
@@ -212,39 +254,13 @@ bun install
 # Build core
 bun run build:core
 
-# Run in dev mode
+# Run in dev mode (no build needed)
 bun run dev -- search for string in file
 bun run dev -- grep
 bun run dev -- --list
 ```
 
----
-
-## Publishing
-
-```bash
-# Build core
-bun run build:core
-
-# Publish all packages
-bun run publish:all
-
-# Or publish individually
-cd packages/core && npm publish
-cd packages/unix && npm publish
-```
-
----
-
-## Update
-
-```bash
-# If you installed @howdoi-cli/all
-npm update -g @howdoi-cli/all
-
-# If you installed individually
-npm update -g @howdoi-cli/unix @howdoi-cli/git @howdoi-cli/ssh
-```
+See [DEVELOPMENT.md](./DEVELOPMENT.md) for the full development guide.
 
 ---
 

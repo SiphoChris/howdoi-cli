@@ -18,6 +18,8 @@ bun install
 
 This installs dependencies for all packages via Bun workspaces.
 
+> **Note:** bun will run postinstall scripts for each knowledge base package during `bun install`. In a monorepo workspace these are automatically skipped — the scripts detect the workspace context and exit cleanly. If you see a "Blocked 1 postinstall" warning, that's bun's default security behaviour for untrusted scripts. It doesn't affect dev mode since the loader reads data directly from the packages.
+
 ---
 
 ## Running in dev mode
