@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     tags:
-      - "v*"   # triggers on any tag like v1.0.0, v1.0.1, v2.0.0
+      - "v*"
 
 jobs:
   release:
@@ -39,8 +39,9 @@ jobs:
           node packages/core/dist/cli.js grep
           node packages/core/dist/cli.js --list
 
-      # Publish in dependency order — core first, then knowledge bases, then all
-      # npm will skip any package already at that version with a harmless warning
+      # Publish in dependency order — core first, then knowledge bases, then all.
+      # "|| true" on knowledge bases means already-published versions are skipped
+      # gracefully instead of failing the whole workflow.
 
       - name: Publish @howdoi-cli/core
         run: npm publish
@@ -49,37 +50,37 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish @howdoi-cli/unix
-        run: npm publish
+        run: npm publish || true
         working-directory: packages/unix
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish @howdoi-cli/git
-        run: npm publish
+        run: npm publish || true
         working-directory: packages/git
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish @howdoi-cli/ssh
-        run: npm publish
+        run: npm publish || true
         working-directory: packages/ssh
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish @howdoi-cli/docker
-        run: npm publish
+        run: npm publish || true
         working-directory: packages/docker
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish @howdoi-cli/networking
-        run: npm publish
+        run: npm publish || true
         working-directory: packages/networking
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish @howdoi-cli/all
-        run: npm publish
+        run: npm publish || true
         working-directory: packages/all
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

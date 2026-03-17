@@ -1,10 +1,19 @@
 {
-  "name": "howdoi-monorepo",
-  "private": true,
-  "version": "1.0.0",
-  "workspaces": [
-    "packages/*"
+  "name": "@howdoi-cli/core",
+  "version": "2.0.0",
+  "description": "The howdoi CLI engine \u2014 intent-based command discovery for the terminal.",
+  "type": "module",
+  "bin": {
+    "howdoi": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "bun run --filter '*' build",
     "build:core": "bun run --cwd packages/core build",
@@ -12,10 +21,34 @@
     "publish:all": "bun run --filter '*' publish:npm",
     "clean": "rm -rf packages/*/dist"
   },
-  "devDependencies": {
-    "@types/js-yaml": "^4.0.9",
-    "@types/node": "^20.0.0",
-    "tsup": "^8.0.0",
-    "typescript": "^5.0.0"
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
+    "@inquirer/prompts": "^7.0.0",
+    "chalk": "^5.3.0",
+    "fuse.js": "^7.0.0",
+    "js-yaml": "^4.1.0"
+  },
+  "keywords": [
+    "cli",
+    "unix",
+    "terminal",
+    "git",
+    "commands",
+    "developer-tools",
+    "howdoi"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SiphoChris/howdoi-cli.git"
+  },
+  "homepage": "https://github.com/SiphoChris/howdoi-cli#readme",
+  "bugs": {
+    "url": "https://github.com/SiphoChris/howdoi-cli/issues"
   }
 }
