@@ -1,0 +1,82 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"   # triggers on any tag like v1.0.0, v1.0.1, v2.0.0
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Setup Node (for npm publish)
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Build core
+        run: bun run build:core
+
+      - name: Smoke test before publishing
+        run: |
+          node packages/core/dist/cli.js --version
+          node packages/core/dist/cli.js grep
+          node packages/core/dist/cli.js --list
+
+      # Publish in dependency order — core first, then knowledge bases, then all
+      # npm will skip any package already at that version with a harmless warning
+
+      - name: Publish @howdoi-cli/core
+        run: npm publish
+        working-directory: packages/core
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish @howdoi-cli/unix
+        run: npm publish
+        working-directory: packages/unix
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish @howdoi-cli/git
+        run: npm publish
+        working-directory: packages/git
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish @howdoi-cli/ssh
+        run: npm publish
+        working-directory: packages/ssh
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish @howdoi-cli/docker
+        run: npm publish
+        working-directory: packages/docker
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish @howdoi-cli/networking
+        run: npm publish
+        working-directory: packages/networking
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish @howdoi-cli/all
+        run: npm publish
+        working-directory: packages/all
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

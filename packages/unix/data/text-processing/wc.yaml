@@ -1,0 +1,32 @@
+tool: wc
+category: text-processing
+description: Count lines, words, and characters in files
+package: "@howdoi-cli/unix"
+intents:
+  - count lines in file
+  - count words in file
+  - count characters in file
+  - how many lines in file
+  - how big is this file in lines
+  - count lines in output
+  - count results of command
+  - count number of files
+examples:
+  - intent: count lines in file
+    title: Count the number of lines
+    command: wc -l file.txt
+  - intent: count words in file
+    title: Count the number of words
+    command: wc -w file.txt
+  - intent: count characters in file
+    title: Count the number of characters/bytes
+    command: wc -c file.txt
+  - intent: count lines in output
+    title: Count lines in command output
+    command: ls | wc -l
+  - intent: count results of command
+    title: Count how many grep matches
+    command: grep -r "TODO" . | wc -l
+  - intent: count lines in file
+    title: Count lines in multiple files
+    command: wc -l *.txt

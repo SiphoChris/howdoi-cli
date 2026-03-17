@@ -1,0 +1,43 @@
+tool: cat
+category: text-processing
+description: Concatenate and print file contents
+package: "@howdoi-cli/unix"
+intents:
+  - print file contents
+  - read file
+  - show file
+  - display file contents
+  - combine files into one
+  - merge files
+  - show line numbers in file
+  - concatenate files
+  - read contents of a file
+  - read a file
+  - output file contents
+  - view file contents
+  - open file in terminal
+examples:
+  - intent: print file contents
+    title: Print the contents of a file
+    command: cat file.txt
+  - intent: show line numbers in file
+    title: Print file with line numbers
+    command: cat -n file.txt
+  - intent: combine files into one
+    title: Concatenate two files into a new file
+    command: cat file1.txt file2.txt > combined.txt
+  - intent: merge files
+    title: Append one file to another
+    command: cat file2.txt >> file1.txt
+  - intent: print file contents
+    title: Print multiple files in sequence
+    command: cat file1.txt file2.txt file3.txt
+  - intent: show line numbers in file
+    title: Print file with non-blank line numbers
+    command: cat -b file.txt
+  - intent: read contents of a file
+    title: Read and print a file
+    command: cat file.txt
+  - intent: view file contents
+    title: View file with line numbers
+    command: cat -n file.txt

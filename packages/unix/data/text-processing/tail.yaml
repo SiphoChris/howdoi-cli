@@ -1,0 +1,37 @@
+tool: tail
+category: text-processing
+description: Output the last lines of a file, optionally following it live
+package: "@howdoi-cli/unix"
+intents:
+  - show last lines of file
+  - see end of file
+  - watch file for changes
+  - follow log file live
+  - tail a log file
+  - monitor log in real time
+  - show last n lines
+  - stream file output
+  - watch log file
+  - live log output
+  - read end of file
+  - see bottom of file
+  - read last lines
+examples:
+  - intent: show last lines of file
+    title: Show the last 10 lines (default)
+    command: tail file.txt
+  - intent: show last n lines
+    title: Show the last 50 lines
+    command: tail -n 50 app.log
+  - intent: follow log file live
+    title: Follow a log file in real time
+    command: tail -f app.log
+  - intent: monitor log in real time
+    title: Follow log and filter for errors
+    command: tail -f app.log | grep --line-buffered "error"
+  - intent: show last lines of file
+    title: Show last 5 lines of multiple files
+    command: tail -n 5 file1.log file2.log
+  - intent: watch file for changes
+    title: Follow multiple log files simultaneously
+    command: tail -f access.log error.log

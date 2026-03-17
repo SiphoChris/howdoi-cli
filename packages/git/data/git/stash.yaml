@@ -1,0 +1,45 @@
+tool: git stash
+category: git
+description: Temporarily shelve uncommitted changes
+package: "@howdoi-cli/git"
+intents:
+  - save changes temporarily
+  - stash uncommitted changes
+  - put changes aside
+  - hide changes to switch branch
+  - restore stashed changes
+  - apply stash
+  - list stashes
+  - drop stash
+  - stash only certain files
+  - stash with a message
+  - save work in progress
+  - shelve current changes
+examples:
+  - intent: save changes temporarily
+    title: Stash all uncommitted changes
+    command: git stash
+  - intent: stash with a message
+    title: Stash with a descriptive name
+    command: git stash push -m "work in progress on auth"
+  - intent: restore stashed changes
+    title: Apply the most recent stash and keep it
+    command: git stash apply
+  - intent: restore stashed changes
+    title: Apply the most recent stash and remove it
+    command: git stash pop
+  - intent: list stashes
+    title: List all stashes
+    command: git stash list
+  - intent: restore stashed changes
+    title: Apply a specific stash by index
+    command: git stash apply stash@{2}
+  - intent: drop stash
+    title: Delete the most recent stash
+    command: git stash drop
+  - intent: drop stash
+    title: Delete all stashes
+    command: git stash clear
+  - intent: save changes temporarily
+    title: Stash including untracked files
+    command: git stash push -u

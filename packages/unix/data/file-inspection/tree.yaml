@@ -1,0 +1,34 @@
+tool: tree
+category: file-inspection
+description: Display directory contents as a tree structure
+package: "@howdoi-cli/unix"
+intents:
+  - show directory tree
+  - visualize folder structure
+  - display project structure
+  - show nested folder layout
+  - list files as tree
+  - see project layout
+  - show directory depth
+examples:
+  - intent: show directory tree
+    title: Show the directory tree from current location
+    command: tree
+  - intent: show directory depth
+    title: Show tree limited to 2 levels deep
+    command: tree -L 2
+  - intent: list files as tree
+    title: Show tree including hidden files
+    command: tree -a
+  - intent: show directory tree
+    title: Show only directories (no files)
+    command: tree -d
+  - intent: show directory tree
+    title: Show tree excluding node_modules
+    command: tree -I node_modules
+  - intent: visualize folder structure
+    title: Show tree with file sizes
+    command: tree -sh
+  - intent: show directory tree
+    title: Exclude multiple directories
+    command: tree -I "node_modules|dist|.git"

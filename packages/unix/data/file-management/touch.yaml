@@ -1,0 +1,23 @@
+tool: touch
+category: file-management
+description: Create empty files or update file timestamps
+package: "@howdoi-cli/unix"
+intents:
+  - create empty file
+  - make new file
+  - create blank file
+  - create multiple files at once
+  - update file timestamp
+examples:
+  - intent: create empty file
+    title: Create a new empty file
+    command: touch file.txt
+  - intent: create multiple files at once
+    title: Create multiple files at once
+    command: touch index.ts types.ts utils.ts
+  - intent: create multiple files at once
+    title: Create files using brace expansion
+    command: touch src/{index,types,utils}.ts
+  - intent: update file timestamp
+    title: Update a file's last-modified timestamp
+    command: touch -m file.txt

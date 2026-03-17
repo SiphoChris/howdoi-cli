@@ -1,0 +1,35 @@
+{
+  "name": "@howdoi-cli/networking",
+  "version": "1.0.0",
+  "description": "Networking knowledge base for howdoi — curl, netstat, ping, dig, and more.",
+  "type": "module",
+  "files": [
+    "data",
+    "postinstall.mjs",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "postinstall": "node postinstall.mjs",
+    "publish:npm": "npm publish"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "howdoi": {
+    "type": "knowledge-base",
+    "dataDir": "data"
+  },
+  "dependencies": {
+    "@howdoi-cli/core": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": ["cli", "networking", "curl", "terminal", "howdoi"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SiphoChris/howdoi-cli"
+  }
+}

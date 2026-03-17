@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Build core
+        run: bun run build:core
+
+      - name: Smoke test — version
+        run: node packages/core/dist/cli.js --version
+
+      - name: Smoke test — help
+        run: node packages/core/dist/cli.js --help
+
+      - name: Smoke test — direct tool lookup
+        run: node packages/core/dist/cli.js grep
+
+      - name: Smoke test — intent search
+        run: node packages/core/dist/cli.js search for string in file
+
+      - name: Smoke test — list
+        run: node packages/core/dist/cli.js --list

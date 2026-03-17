@@ -1,0 +1,35 @@
+tool: chmod
+category: file-management
+description: Change file permissions
+package: "@howdoi-cli/unix"
+intents:
+  - make file executable
+  - change file permissions
+  - give execute permission
+  - make script executable
+  - remove write permission
+  - set file permissions
+  - make file readable
+  - change folder permissions recursively
+examples:
+  - intent: make file executable
+    title: Make a script executable
+    command: chmod +x script.sh
+  - intent: make file executable
+    title: Make executable for everyone
+    command: chmod a+x script.sh
+  - intent: change file permissions
+    title: Set permissions to read/write for owner only
+    command: chmod 600 file.txt
+  - intent: change file permissions
+    title: Set permissions to read/write/execute for owner, read for others
+    command: chmod 755 script.sh
+  - intent: change folder permissions recursively
+    title: Recursively set permissions on a directory
+    command: chmod -R 755 dist/
+  - intent: remove write permission
+    title: Remove write permission from a file
+    command: chmod -w file.txt
+  - intent: set file permissions
+    title: Make a file read-only for everyone
+    command: chmod 444 file.txt

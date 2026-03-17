@@ -1,0 +1,49 @@
+tool: ssh-keygen
+category: ssh
+description: Generate and manage SSH key pairs
+package: "@howdoi-cli/ssh"
+intents:
+  - generate ssh key
+  - create ssh key pair
+  - make new ssh key
+  - generate ed25519 key
+  - generate rsa key
+  - create ssh key for github
+  - add passphrase to ssh key
+  - change ssh key passphrase
+  - view ssh public key
+  - copy ssh public key
+  - check ssh key fingerprint
+  - remove host from known hosts
+  - fix host key verification failed
+examples:
+  - intent: generate ssh key
+    title: Generate a new Ed25519 key (recommended)
+    command: ssh-keygen -t ed25519 -C "your@email.com"
+  - intent: generate rsa key
+    title: Generate a 4096-bit RSA key
+    command: ssh-keygen -t rsa -b 4096 -C "your@email.com"
+  - intent: generate ssh key
+    title: Generate key with a specific filename
+    command: ssh-keygen -t ed25519 -f ~/.ssh/my_key -C "work laptop"
+  - intent: view ssh public key
+    title: Print your public key (to copy to GitHub, servers etc.)
+    command: cat ~/.ssh/id_ed25519.pub
+  - intent: check ssh key fingerprint
+    title: Show the fingerprint of a key
+    command: ssh-keygen -lf ~/.ssh/id_ed25519
+  - intent: change ssh key passphrase
+    title: Change the passphrase on an existing key
+    command: ssh-keygen -p -f ~/.ssh/id_ed25519
+  - intent: remove host from known hosts
+    title: Remove a host from known_hosts (fix host key errors)
+    command: ssh-keygen -R hostname
+  - intent: fix host key verification failed
+    title: Remove stale host key and reconnect
+    command: ssh-keygen -R hostname && ssh user@hostname
+  - intent: copy ssh public key
+    title: Copy public key to a remote server
+    command: ssh-copy-id user@hostname
+  - intent: copy ssh public key
+    title: Copy a specific public key to a remote server
+    command: ssh-copy-id -i ~/.ssh/id_ed25519.pub user@hostname

@@ -1,0 +1,91 @@
+tool: docker
+category: docker
+description: Manage Docker containers, images, and volumes
+package: "@howdoi-cli/docker"
+intents:
+  - run docker container
+  - start container
+  - stop container
+  - list running containers
+  - list all containers
+  - remove container
+  - get shell inside container
+  - exec into container
+  - view container logs
+  - follow container logs
+  - inspect container
+  - restart container
+  - remove all stopped containers
+  - list docker images
+  - pull docker image
+  - remove docker image
+  - build docker image
+  - tag docker image
+  - push docker image
+  - run container in background
+  - map port in docker
+  - mount volume in docker
+  - pass environment variable to container
+  - copy file from container
+  - copy file to container
+examples:
+  - intent: list running containers
+    title: List all running containers
+    command: docker ps
+  - intent: list all containers
+    title: List all containers including stopped ones
+    command: docker ps -a
+  - intent: run docker container
+    title: Run a container interactively
+    command: docker run -it ubuntu bash
+  - intent: run container in background
+    title: Run a container in the background (detached)
+    command: docker run -d nginx
+  - intent: map port in docker
+    title: Run container and map host port to container port
+    command: docker run -p 8080:80 nginx
+  - intent: pass environment variable to container
+    title: Run container with environment variables
+    command: docker run -e NODE_ENV=production -e PORT=3000 myapp
+  - intent: mount volume in docker
+    title: Mount a local directory into a container
+    command: docker run -v $(pwd):/app node:18
+  - intent: get shell inside container
+    title: Open a bash shell inside a running container
+    command: docker exec -it container_name bash
+  - intent: view container logs
+    title: View logs of a container
+    command: docker logs container_name
+  - intent: follow container logs
+    title: Follow container logs in real time
+    command: docker logs -f container_name
+  - intent: stop container
+    title: Stop a running container
+    command: docker stop container_name
+  - intent: remove container
+    title: Remove a stopped container
+    command: docker rm container_name
+  - intent: remove all stopped containers
+    title: Remove all stopped containers at once
+    command: docker container prune
+  - intent: list docker images
+    title: List all local Docker images
+    command: docker images
+  - intent: pull docker image
+    title: Pull an image from Docker Hub
+    command: docker pull node:18
+  - intent: build docker image
+    title: Build an image from a Dockerfile
+    command: docker build -t myapp:latest .
+  - intent: remove docker image
+    title: Remove a local image
+    command: docker rmi myapp:latest
+  - intent: copy file from container
+    title: Copy a file from a container to your machine
+    command: docker cp container_name:/app/file.txt ./file.txt
+  - intent: copy file to container
+    title: Copy a file from your machine into a container
+    command: docker cp ./file.txt container_name:/app/file.txt
+  - intent: inspect container
+    title: Inspect full container details
+    command: docker inspect container_name
