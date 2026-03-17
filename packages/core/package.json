@@ -1,6 +1,6 @@
 {
   "name": "@howdoi-cli/core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The howdoi CLI engine — intent-based command discovery for the terminal.",
   "type": "module",
   "bin": {
@@ -30,7 +30,13 @@
     "js-yaml": "^4.1.0"
   },
   "keywords": [
-    "cli", "unix", "terminal", "git", "commands", "developer-tools", "howdoi"
+    "cli",
+    "unix",
+    "terminal",
+    "git",
+    "commands",
+    "developer-tools",
+    "howdoi"
   ],
   "license": "MIT",
   "repository": {
