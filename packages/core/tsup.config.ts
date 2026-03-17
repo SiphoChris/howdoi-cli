@@ -10,14 +10,14 @@ export default defineConfig({
   outExtension: () => ({ js: ".js" }),
   format: ["esm"],
   target: "node18",
-  // Inject version as a constant at the top of the bundle via banner
-  banner: {
-    js: `#!/usr/bin/env node\nconst __HOWDOI_VERSION__ = ${JSON.stringify(version)};`,
-  },
+  banner: { js: "#!/usr/bin/env node" },
   clean: true,
   minify: false,
   bundle: true,
   external: ["@inquirer/prompts"],
+  define: {
+    HOWDOI_VERSION: JSON.stringify(version),
+  },
   onSuccess: async () => {
     cpSync("./package.json", "./dist/package.json");
     chmodSync("dist/cli.js", 0o755);

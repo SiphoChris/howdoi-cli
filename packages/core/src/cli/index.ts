@@ -14,6 +14,7 @@ import { select } from "@inquirer/prompts";
 declare const HOWDOI_VERSION: string;
 const VERSION = HOWDOI_VERSION;
 
+
 async function promptSelect(
   message: string,
   choices: { name: string; value: string; description?: string }[]
