@@ -1,0 +1,40 @@
+{
+  "name": "@howdoi-cli/git",
+  "version": "3.1.0",
+  "description": "Git knowledge base for howdoi \u2014 log, diff, stash, rebase, and more.",
+  "type": "module",
+  "files": [
+    "data",
+    "postinstall.mjs",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "postinstall": "node postinstall.mjs",
+    "publish:npm": "npm publish"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "howdoi": {
+    "type": "knowledge-base",
+    "dataDir": "data"
+  },
+  "dependencies": {
+    "@howdoi-cli/core": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "cli",
+    "git",
+    "terminal",
+    "howdoi"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SiphoChris/howdoi-cli.git"
+  }
+}

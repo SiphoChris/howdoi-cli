@@ -1,0 +1,41 @@
+{
+  "name": "@howdoi-cli/all",
+  "version": "3.1.0",
+  "description": "Install all official howdoi knowledge bases in one shot.",
+  "type": "module",
+  "files": [
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "publish:npm": "npm publish"
+  },
+  "dependencies": {
+    "@howdoi-cli/core": "^3.1.0",
+    "@howdoi-cli/unix": "^3.1.0",
+    "@howdoi-cli/git": "^3.1.0",
+    "@howdoi-cli/ssh": "^3.1.0",
+    "@howdoi-cli/docker": "^3.1.0",
+    "@howdoi-cli/networking": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "cli",
+    "unix",
+    "git",
+    "ssh",
+    "docker",
+    "terminal",
+    "howdoi"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SiphoChris/howdoi-cli.git"
+  }
+}

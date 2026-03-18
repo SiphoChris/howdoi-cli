@@ -1,0 +1,30 @@
+tool: head
+category: text-processing
+description: Output the first lines of a file
+package: "@howdoi-cli/unix"
+intents:
+  - show first lines of file
+  - preview top of file
+  - print first 10 lines
+  - see beginning of file
+  - show first n lines
+  - peek at file contents
+  - read start of log file
+  - read beginning of file
+  - read top of file
+examples:
+  - intent: show first lines of file
+    title: Show the first 10 lines (default)
+    command: head file.txt
+  - intent: show first n lines
+    title: Show the first 20 lines
+    command: head -n 20 file.txt
+  - intent: preview top of file
+    title: Preview the top of a log file
+    command: head -n 50 app.log
+  - intent: show first lines of file
+    title: Show first 5 lines of multiple files
+    command: head -n 5 file1.txt file2.txt
+  - intent: peek at file contents
+    title: Peek at the start of a file quickly
+    command: head -n 3 file.txt

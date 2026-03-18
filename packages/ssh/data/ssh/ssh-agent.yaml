@@ -1,0 +1,46 @@
+tool: ssh-agent
+category: ssh
+description: Manage the SSH authentication agent
+package: "@howdoi-cli/ssh"
+intents:
+  - add ssh key to agent
+  - ssh agent not found
+  - ssh-add key
+  - load ssh key
+  - start ssh agent
+  - fix ssh agent not running
+  - ssh agent forwarding
+  - list loaded ssh keys
+  - remove key from agent
+  - clear all keys from agent
+  - fix permission denied publickey
+  - ssh key not being used
+examples:
+  - intent: start ssh agent
+    title: Start the SSH agent in current shell
+    command: eval "$(ssh-agent -s)"
+  - intent: add ssh key to agent
+    title: Add your default SSH key to the agent
+    command: ssh-add ~/.ssh/id_rsa
+  - intent: add ssh key to agent
+    title: Add an Ed25519 key (recommended key type)
+    command: ssh-add ~/.ssh/id_ed25519
+  - intent: add ssh key to agent
+    title: Add key and save passphrase to macOS keychain
+    command: ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+    os: macos-only
+  - intent: list loaded ssh keys
+    title: List all keys currently loaded in the agent
+    command: ssh-add -l
+  - intent: remove key from agent
+    title: Remove a specific key from the agent
+    command: ssh-add -d ~/.ssh/id_ed25519
+  - intent: clear all keys from agent
+    title: Remove all keys from the agent
+    command: ssh-add -D
+  - intent: fix ssh agent not running
+    title: Fix "Could not open a connection to your authentication agent"
+    command: eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_ed25519
+  - intent: ssh agent forwarding
+    title: Connect with agent forwarding enabled
+    command: ssh -A user@host

@@ -1,0 +1,24 @@
+tool: df
+category: file-inspection
+description: Report filesystem disk space usage
+package: "@howdoi-cli/unix"
+intents:
+  - check disk space
+  - see how much disk space is left
+  - check available storage
+  - see disk usage
+  - check free space on drive
+  - see mounted filesystems
+examples:
+  - intent: check disk space
+    title: Show disk space for all filesystems
+    command: df -h
+  - intent: check disk space
+    title: Show disk space for a specific directory
+    command: df -h /home
+  - intent: see mounted filesystems
+    title: Show all filesystem types
+    command: df -hT
+  - intent: check available storage
+    title: Show only local filesystems (exclude tmpfs etc)
+    command: df -hl

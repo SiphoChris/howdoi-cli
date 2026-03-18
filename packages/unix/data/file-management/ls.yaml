@@ -1,0 +1,44 @@
+tool: ls
+category: file-management
+description: List directory contents
+package: "@howdoi-cli/unix"
+intents:
+  - list files in directory
+  - show files in folder
+  - list all files including hidden
+  - show hidden files
+  - list files with details
+  - show file sizes
+  - list files sorted by date
+  - list files sorted by size
+  - show only directories
+  - list files in long format
+  - see what is in a folder
+examples:
+  - intent: list files in directory
+    title: List files in current directory
+    command: ls
+  - intent: list files with details
+    title: List with details (permissions, size, date)
+    command: ls -l
+  - intent: list all files including hidden
+    title: List all files including hidden ones
+    command: ls -la
+  - intent: show file sizes
+    title: List with human-readable file sizes
+    command: ls -lh
+  - intent: list files sorted by date
+    title: List sorted by modification date (newest first)
+    command: ls -lt
+  - intent: list files sorted by size
+    title: List sorted by file size (largest first)
+    command: ls -lS
+  - intent: show only directories
+    title: List only directories
+    command: ls -d */
+  - intent: list files in directory
+    title: List files in a specific directory
+    command: ls -la /path/to/dir
+  - intent: list all files including hidden
+    title: List all, human-readable, sorted by time
+    command: ls -laht

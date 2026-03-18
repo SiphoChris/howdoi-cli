@@ -1,0 +1,35 @@
+tool: dig
+category: networking
+description: DNS lookup and query tool
+package: "@howdoi-cli/networking"
+intents:
+  - lookup dns record
+  - check dns for domain
+  - find ip address of domain
+  - check mx record
+  - check nameservers
+  - lookup txt record
+  - reverse dns lookup
+  - query specific dns server
+examples:
+  - intent: find ip address of domain
+    title: Look up the A record for a domain
+    command: dig google.com
+  - intent: find ip address of domain
+    title: Short answer only
+    command: dig +short google.com
+  - intent: check mx record
+    title: Look up MX (mail) records
+    command: dig MX google.com
+  - intent: check nameservers
+    title: Look up NS records
+    command: dig NS google.com
+  - intent: lookup txt record
+    title: Look up TXT records (SPF, verification etc.)
+    command: dig TXT google.com
+  - intent: reverse dns lookup
+    title: Reverse DNS lookup from IP address
+    command: dig -x 8.8.8.8
+  - intent: query specific dns server
+    title: Query a specific DNS server
+    command: dig @8.8.8.8 google.com

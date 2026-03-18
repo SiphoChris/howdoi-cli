@@ -1,0 +1,56 @@
+tool: awk
+category: text-processing
+description: Pattern scanning and text processing language
+package: "@howdoi-cli/unix"
+intents:
+  - print specific column from file
+  - extract column from csv
+  - print field from output
+  - sum column of numbers
+  - calculate total from column
+  - print lines matching pattern
+  - filter lines by value
+  - count lines matching condition
+  - print last column
+  - print first column
+  - print line number and content
+  - process csv file
+  - split output into columns
+  - print columns from command output
+  - format output into columns
+  - print specific fields from output
+  - add up numbers in column
+examples:
+  - intent: print specific column from file
+    title: Print the second column (space-separated)
+    command: awk '{print $2}' file.txt
+  - intent: print last column
+    title: Print the last column of each line
+    command: awk '{print $NF}' file.txt
+  - intent: print lines matching pattern
+    title: Print lines where the 3rd column equals "active"
+    command: awk '$3 == "active"' file.txt
+  - intent: sum column of numbers
+    title: Sum all values in the second column
+    command: awk '{sum += $2} END {print sum}' file.txt
+  - intent: count lines matching condition
+    title: Count lines where column 1 is greater than 100
+    command: awk '$1 > 100 {count++} END {print count}' file.txt
+  - intent: process csv file
+    title: Print second column from a CSV file
+    command: awk -F',' '{print $2}' file.csv
+  - intent: print line number and content
+    title: Print line numbers alongside content
+    command: awk '{print NR, $0}' file.txt
+  - intent: print columns from command output
+    title: Print PID and command name from ps output
+    command: ps aux | awk '{print $1, $11}'
+  - intent: filter lines by value
+    title: Print lines where column 3 is greater than 50
+    command: awk '$3 > 50 {print}' file.txt
+  - intent: format output into columns
+    title: Print first and third column with a separator
+    command: awk '{print $1 " | " $3}' file.txt
+  - intent: print specific fields from output
+    title: Print lines that are longer than 80 characters
+    command: awk 'length($0) > 80' file.txt

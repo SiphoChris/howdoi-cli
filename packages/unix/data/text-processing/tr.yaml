@@ -1,0 +1,36 @@
+tool: tr
+category: text-processing
+description: Translate or delete characters from text
+package: "@howdoi-cli/unix"
+intents:
+  - convert uppercase to lowercase
+  - convert lowercase to uppercase
+  - change case of text
+  - replace character in text
+  - delete character from text
+  - remove specific characters
+  - replace spaces with newlines
+  - squeeze repeated characters
+  - remove punctuation
+examples:
+  - intent: convert uppercase to lowercase
+    title: Convert text to lowercase
+    command: echo "HELLO WORLD" | tr 'A-Z' 'a-z'
+  - intent: convert lowercase to uppercase
+    title: Convert text to uppercase
+    command: echo "hello world" | tr 'a-z' 'A-Z'
+  - intent: replace character in text
+    title: Replace colons with spaces
+    command: echo "a:b:c" | tr ':' ' '
+  - intent: replace spaces with newlines
+    title: Put each word on its own line
+    command: echo "one two three" | tr ' ' '\n'
+  - intent: delete character from text
+    title: Delete all digits from text
+    command: echo "abc123" | tr -d '0-9'
+  - intent: squeeze repeated characters
+    title: Squeeze multiple spaces into one
+    command: cat file.txt | tr -s ' '
+  - intent: remove punctuation
+    title: Remove all punctuation from text
+    command: cat file.txt | tr -d '[:punct:]'

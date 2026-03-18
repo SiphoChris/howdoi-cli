@@ -1,0 +1,32 @@
+tool: cp
+category: file-management
+description: Copy files and directories
+package: "@howdoi-cli/unix"
+intents:
+  - copy file
+  - duplicate file
+  - copy directory
+  - copy folder recursively
+  - copy file to another location
+  - backup a file
+  - copy and preserve permissions
+  - make a copy of folder
+examples:
+  - intent: copy file
+    title: Copy a file to another location
+    command: cp file.txt /path/to/destination/
+  - intent: duplicate file
+    title: Duplicate a file with a new name
+    command: cp file.txt file-backup.txt
+  - intent: copy directory
+    title: Copy a directory recursively
+    command: cp -r src/ dest/
+  - intent: copy and preserve permissions
+    title: Copy and preserve timestamps and permissions
+    command: cp -rp src/ dest/
+  - intent: copy file
+    title: Copy multiple files into a directory
+    command: cp file1.txt file2.txt /path/to/dir/
+  - intent: backup a file
+    title: Copy with verbose output to see progress
+    command: cp -rv src/ dest/
