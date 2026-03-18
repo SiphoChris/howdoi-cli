@@ -1,0 +1,39 @@
+tool: git diff
+category: git
+description: Show changes between commits, branches, or working tree
+package: "@howdoi-cli/git"
+intents:
+  - see uncommitted changes
+  - show what changed in file
+  - compare branches
+  - see staged changes
+  - view changes before committing
+  - compare two commits
+  - show changes in working directory
+  - diff between branches
+  - see what is staged
+examples:
+  - intent: see uncommitted changes
+    title: Show all unstaged changes
+    command: git diff
+  - intent: see staged changes
+    title: Show staged changes (what will be committed)
+    command: git diff --staged
+  - intent: show what changed in file
+    title: Show changes in a specific file
+    command: git diff path/to/file.ts
+  - intent: compare branches
+    title: Compare current branch to main
+    command: git diff main
+  - intent: diff between branches
+    title: Compare two branches
+    command: git diff branch-a..branch-b
+  - intent: compare two commits
+    title: Compare two commits by hash
+    command: git diff abc123..def456
+  - intent: see uncommitted changes
+    title: Show a summary of what files changed (no full diff)
+    command: git diff --stat
+  - intent: compare branches
+    title: See which files differ between two branches
+    command: git diff --name-only main..feature-branch

@@ -1,0 +1,29 @@
+tool: uniq
+category: text-processing
+description: Report or omit repeated lines
+package: "@howdoi-cli/unix"
+intents:
+  - remove duplicate lines
+  - deduplicate lines in file
+  - count duplicate lines
+  - count occurrences of each line
+  - show only duplicate lines
+  - show only unique lines
+  - find repeated lines
+  - count how many times each line appears
+examples:
+  - intent: remove duplicate lines
+    title: Remove consecutive duplicate lines (sort first)
+    command: sort file.txt | uniq
+  - intent: count occurrences of each line
+    title: Count how many times each line appears
+    command: sort file.txt | uniq -c
+  - intent: count occurrences of each line
+    title: Count and sort by most frequent
+    command: sort file.txt | uniq -c | sort -rn
+  - intent: show only duplicate lines
+    title: Show only lines that are duplicated
+    command: sort file.txt | uniq -d
+  - intent: show only unique lines
+    title: Show only lines that appear exactly once
+    command: sort file.txt | uniq -u

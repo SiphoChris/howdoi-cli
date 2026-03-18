@@ -1,0 +1,24 @@
+tool: chown
+category: file-management
+description: Change file owner and group
+package: "@howdoi-cli/unix"
+intents:
+  - change file owner
+  - change file ownership
+  - change owner of directory
+  - change group of file
+  - transfer file ownership
+  - change owner recursively
+examples:
+  - intent: change file owner
+    title: Change the owner of a file
+    command: chown username file.txt
+  - intent: change file ownership
+    title: Change owner and group of a file
+    command: chown username:groupname file.txt
+  - intent: change owner recursively
+    title: Recursively change owner of a directory
+    command: chown -R username:groupname dir/
+  - intent: change group of file
+    title: Change only the group of a file
+    command: chown :groupname file.txt

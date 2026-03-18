@@ -1,0 +1,31 @@
+tool: du
+category: file-inspection
+description: Estimate file and directory space usage
+package: "@howdoi-cli/unix"
+intents:
+  - check folder size
+  - see how much space directory uses
+  - check disk usage of folder
+  - find largest directories
+  - see size of each folder
+  - check size of files
+  - summarize directory size
+examples:
+  - intent: check folder size
+    title: Check the size of a directory
+    command: du -sh dir/
+  - intent: see size of each folder
+    title: Show size of each item in current directory
+    command: du -sh *
+  - intent: find largest directories
+    title: Show subdirectory sizes sorted by largest
+    command: du -sh * | sort -rh
+  - intent: check folder size
+    title: Show total size of current directory
+    command: du -sh .
+  - intent: see how much space directory uses
+    title: Show all subdirectory sizes recursively
+    command: du -h --max-depth=1 .
+  - intent: find largest directories
+    title: Find the top 10 largest directories
+    command: du -h . | sort -rh | head -10

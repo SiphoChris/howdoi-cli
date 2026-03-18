@@ -1,0 +1,21 @@
+tool: ping
+category: networking
+description: Test network connectivity to a host
+package: "@howdoi-cli/networking"
+intents:
+  - test network connection
+  - check if host is reachable
+  - ping a server
+  - check network latency
+  - test internet connection
+examples:
+  - intent: ping a server
+    title: Ping a host
+    command: ping google.com
+  - intent: test network connection
+    title: Ping a limited number of times
+    command: ping -c 4 google.com
+  - intent: check network latency
+    title: Ping with timestamps
+    command: ping -D google.com
+    os: linux-only

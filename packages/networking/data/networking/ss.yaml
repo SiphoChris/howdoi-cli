@@ -1,0 +1,35 @@
+tool: ss
+category: networking
+description: Inspect network sockets and connections (modern netstat)
+package: "@howdoi-cli/networking"
+intents:
+  - check open ports
+  - see listening ports
+  - find what is using a port
+  - list network connections
+  - check port in use
+  - see active connections
+  - find process using port
+examples:
+  - intent: see listening ports
+    title: Show all listening ports
+    command: ss -tlnp
+  - intent: see listening ports
+    title: Show listening ports (netstat fallback)
+    command: netstat -tlnp
+    os: linux-only
+  - intent: check open ports
+    title: Show all open ports (TCP and UDP)
+    command: ss -tulnp
+  - intent: find what is using a port
+    title: Find what process is using port 3000
+    command: ss -tlnp | grep :3000
+  - intent: find process using port
+    title: Find process using a port with lsof
+    command: lsof -i :3000
+  - intent: list network connections
+    title: Show all established connections
+    command: ss -tnp state established
+  - intent: check port in use
+    title: Check if a specific port is open on a remote host
+    command: nc -zv hostname 3000

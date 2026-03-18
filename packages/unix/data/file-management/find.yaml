@@ -1,0 +1,66 @@
+tool: find
+category: file-management
+description: Search for files and directories in a hierarchy
+package: "@howdoi-cli/unix"
+intents:
+  - find file by name
+  - search for file
+  - locate file in directory
+  - find files by extension
+  - find all typescript files
+  - find all javascript files
+  - find files modified recently
+  - find recently changed files
+  - find large files
+  - find files bigger than size
+  - find empty files
+  - find empty directories
+  - find and delete files
+  - find files older than days
+  - find files modified today
+  - find directory by name
+  - list all files recursively
+  - find files by type
+examples:
+  - intent: find file by name
+    title: Find a file by exact name
+    command: find . -name "config.json"
+  - intent: find files by extension
+    title: Find all TypeScript files
+    command: find . -name "*.ts"
+  - intent: find files by extension
+    title: Find all TypeScript files excluding node_modules
+    command: find . -name "*.ts" -not -path "*/node_modules/*"
+  - intent: find files modified recently
+    title: Find files modified in the last 7 days
+    command: find . -mtime -7
+  - intent: find files older than days
+    title: Find files not modified in over 30 days
+    command: find . -mtime +30
+  - intent: find large files
+    title: Find files larger than 100MB
+    command: find . -size +100M
+  - intent: find empty files
+    title: Find all empty files
+    command: find . -empty -type f
+  - intent: find empty directories
+    title: Find all empty directories
+    command: find . -empty -type d
+  - intent: find and delete files
+    title: Find and delete all .log files
+    command: find . -name "*.log" -delete
+  - intent: find directory by name
+    title: Find a directory by name
+    command: find . -type d -name "components"
+  - intent: list all files recursively
+    title: List all files recursively (just paths)
+    command: find . -type f
+  - intent: find files modified today
+    title: Find files modified today
+    command: find . -mtime 0
+  - intent: find file by name
+    title: Case-insensitive file name search
+    command: find . -iname "readme*"
+  - intent: find files by extension
+    title: Find files with multiple extensions
+    command: find . \( -name "*.ts" -o -name "*.tsx" \)

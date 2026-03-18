@@ -1,0 +1,36 @@
+tool: rm
+category: file-management
+description: Remove files and directories
+package: "@howdoi-cli/unix"
+intents:
+  - delete file
+  - remove file
+  - delete directory
+  - remove folder
+  - delete folder recursively
+  - force delete file
+  - remove all files in directory
+  - delete files matching pattern
+  - remove empty directory
+examples:
+  - intent: delete file
+    title: Delete a file
+    command: rm file.txt
+  - intent: force delete file
+    title: Force delete without confirmation
+    command: rm -f file.txt
+  - intent: delete directory
+    title: Delete a directory and all its contents
+    command: rm -rf dir/
+  - intent: remove all files in directory
+    title: Delete all files in current directory (not subdirs)
+    command: rm -f *
+  - intent: delete files matching pattern
+    title: Delete all .log files in current directory
+    command: rm -f *.log
+  - intent: delete directory
+    title: Delete with verbose output (see each file removed)
+    command: rm -rfv dir/
+  - intent: remove empty directory
+    title: Remove an empty directory
+    command: rmdir empty-dir/

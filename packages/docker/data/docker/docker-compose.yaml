@@ -1,0 +1,46 @@
+tool: docker compose
+category: docker
+description: Manage multi-container Docker applications
+package: "@howdoi-cli/docker"
+intents:
+  - start docker compose
+  - run docker compose
+  - stop docker compose
+  - restart docker compose services
+  - view docker compose logs
+  - rebuild docker compose
+  - scale docker compose service
+  - run command in compose service
+  - list compose services
+  - remove compose volumes
+examples:
+  - intent: start docker compose
+    title: Start all services in the background
+    command: docker compose up -d
+  - intent: start docker compose
+    title: Start services and show logs
+    command: docker compose up
+  - intent: stop docker compose
+    title: Stop all running services
+    command: docker compose down
+  - intent: remove compose volumes
+    title: Stop services and remove volumes
+    command: docker compose down -v
+  - intent: rebuild docker compose
+    title: Rebuild images and restart services
+    command: docker compose up -d --build
+  - intent: view docker compose logs
+    title: View logs for all services
+    command: docker compose logs
+  - intent: view docker compose logs
+    title: Follow logs for a specific service
+    command: docker compose logs -f service_name
+  - intent: run command in compose service
+    title: Run a command inside a running service
+    command: docker compose exec service_name bash
+  - intent: restart docker compose services
+    title: Restart a specific service
+    command: docker compose restart service_name
+  - intent: list compose services
+    title: List all services and their status
+    command: docker compose ps

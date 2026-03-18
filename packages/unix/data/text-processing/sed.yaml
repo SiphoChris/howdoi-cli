@@ -1,0 +1,59 @@
+tool: sed
+category: text-processing
+description: Stream editor for filtering and transforming text
+package: "@howdoi-cli/unix"
+intents:
+  - replace text in file
+  - find and replace in file
+  - substitute string in file
+  - replace word in file
+  - edit file in place
+  - delete lines from file
+  - remove lines matching pattern
+  - remove blank lines from file
+  - print specific line number
+  - show line from file
+  - replace only first occurrence
+  - replace all occurrences in file
+  - remove leading whitespace
+  - strip whitespace from lines
+  - add line to file
+  - insert text into file
+  - delete line by number
+examples:
+  - intent: replace text in file
+    title: Replace first occurrence of a string per line
+    command: sed 's/foo/bar/' file.txt
+  - intent: replace all occurrences in file
+    title: Replace all occurrences of a string per line
+    command: sed 's/foo/bar/g' file.txt
+  - intent: edit file in place
+    title: Replace string and save changes to the file
+    command: sed -i 's/foo/bar/g' file.txt
+  - intent: edit file in place
+    title: In-place edit with a backup copy
+    command: sed -i.bak 's/foo/bar/g' file.txt
+  - intent: delete lines from file
+    title: Delete lines containing a pattern
+    command: sed '/pattern/d' file.txt
+  - intent: remove blank lines from file
+    title: Remove all blank lines
+    command: sed '/^$/d' file.txt
+  - intent: print specific line number
+    title: Print only line 5
+    command: sed -n '5p' file.txt
+  - intent: print specific line number
+    title: Print lines 5 through 10
+    command: sed -n '5,10p' file.txt
+  - intent: remove leading whitespace
+    title: Strip leading whitespace from each line
+    command: sed 's/^[[:space:]]*//' file.txt
+  - intent: add line to file
+    title: Insert a line before line 3
+    command: sed '3i\new line here' file.txt
+  - intent: delete line by number
+    title: Delete lines 3 through 7
+    command: sed '3,7d' file.txt
+  - intent: replace text in file
+    title: Case-insensitive replace (GNU sed)
+    command: sed 's/foo/bar/gi' file.txt

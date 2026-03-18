@@ -1,0 +1,53 @@
+tool: ssh config
+category: ssh
+description: Manage SSH client configuration file (~/.ssh/config)
+package: "@howdoi-cli/ssh"
+intents:
+  - configure ssh alias
+  - create ssh shortcut
+  - set default ssh key for host
+  - edit ssh config
+  - add host to ssh config
+  - set ssh config for github
+  - use different key per host
+  - view ssh config
+examples:
+  - intent: edit ssh config
+    title: Open the SSH config file for editing
+    command: nano ~/.ssh/config
+  - intent: view ssh config
+    title: View the SSH config file
+    command: cat ~/.ssh/config
+  - intent: configure ssh alias
+    title: Example host entry with alias (add to ~/.ssh/config)
+    command: |
+      Host myserver
+        HostName 192.168.1.100
+        User ubuntu
+        IdentityFile ~/.ssh/id_ed25519
+        Port 22
+  - intent: set ssh config for github
+    title: GitHub-specific SSH config entry
+    command: |
+      Host github.com
+        HostName github.com
+        User git
+        IdentityFile ~/.ssh/id_ed25519
+  - intent: use different key per host
+    title: Use a different key for work vs personal GitHub
+    command: |
+      Host github-work
+        HostName github.com
+        User git
+        IdentityFile ~/.ssh/id_work
+
+      Host github-personal
+        HostName github.com
+        User git
+        IdentityFile ~/.ssh/id_personal
+  - intent: keep ssh connection alive
+    title: Global keep-alive setting in config
+    command: |
+      Host *
+        ServerAliveInterval 60
+        ServerAliveCountMax 3

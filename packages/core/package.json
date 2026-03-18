@@ -1,0 +1,56 @@
+{
+  "name": "@howdoi-cli/core",
+  "version": "3.0.0",
+  "description": "The howdoi CLI engine \u2014 intent-based command discovery for the terminal.",
+  "type": "module",
+  "bin": {
+    "howdoi": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "bun run src/cli/index.ts",
+    "build": "tsup",
+    "prepublishOnly": "bun run build",
+    "publish:npm": "npm publish"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^7.0.0",
+    "chalk": "^5.3.0",
+    "fuse.js": "^7.0.0",
+    "js-yaml": "^4.1.0"
+  },
+  "keywords": [
+    "cli",
+    "unix",
+    "terminal",
+    "git",
+    "commands",
+    "developer-tools",
+    "howdoi"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SiphoChris/howdoi-cli.git"
+  },
+  "homepage": "https://github.com/SiphoChris/howdoi-cli#readme",
+  "bugs": {
+    "url": "https://github.com/SiphoChris/howdoi-cli/issues"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
+  }
+}

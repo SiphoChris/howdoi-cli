@@ -1,0 +1,50 @@
+tool: ssh
+category: ssh
+description: Connect to remote servers securely
+package: "@howdoi-cli/ssh"
+intents:
+  - connect to remote server
+  - ssh into server
+  - login to remote machine
+  - connect with specific key
+  - connect on different port
+  - run command on remote server
+  - ssh tunnel
+  - port forward over ssh
+  - local port forwarding
+  - remote port forwarding
+  - copy file over ssh
+  - keep ssh connection alive
+  - connect with verbose output
+  - debug ssh connection
+examples:
+  - intent: connect to remote server
+    title: Basic SSH connection
+    command: ssh user@hostname
+  - intent: connect with specific key
+    title: Connect using a specific identity file
+    command: ssh -i ~/.ssh/id_ed25519 user@hostname
+  - intent: connect on different port
+    title: Connect to a non-standard port
+    command: ssh -p 2222 user@hostname
+  - intent: run command on remote server
+    title: Run a single command on a remote server
+    command: ssh user@hostname "ls -la /var/log"
+  - intent: local port forwarding
+    title: Forward local port 8080 to remote port 80
+    command: ssh -L 8080:localhost:80 user@hostname
+  - intent: remote port forwarding
+    title: Expose local port 3000 on the remote server
+    command: ssh -R 9090:localhost:3000 user@hostname
+  - intent: ssh tunnel
+    title: Create a SOCKS proxy tunnel
+    command: ssh -D 1080 user@hostname
+  - intent: keep ssh connection alive
+    title: Keep connection alive with heartbeat
+    command: ssh -o ServerAliveInterval=60 user@hostname
+  - intent: connect with verbose output
+    title: Debug connection issues with verbose output
+    command: ssh -v user@hostname
+  - intent: connect to remote server
+    title: Connect and jump through a bastion host
+    command: ssh -J bastion-user@bastion user@target

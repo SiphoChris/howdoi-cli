@@ -1,0 +1,76 @@
+tool: grep
+category: text-processing
+description: Search for patterns in files and directories
+package: "@howdoi-cli/unix"
+intents:
+  - search for string in file
+  - find text in file
+  - look for word in file
+  - search file contents
+  - find pattern in file
+  - grep for string
+  - search for text recursively
+  - find text in directory
+  - look for string across files
+  - search all files for pattern
+  - find matching lines in file
+  - case insensitive search
+  - search ignoring case
+  - find line number of match
+  - show line numbers in search
+  - count matches in file
+  - count occurrences of string
+  - search only certain file types
+  - find string in typescript files
+  - find string in javascript files
+  - show lines before and after match
+  - search with context lines
+  - invert search exclude lines
+  - find lines that do not match
+  - list files that contain string
+  - show only filenames with match
+  - search for whole word
+  - find exact word in file
+examples:
+  - intent: search for string in file
+    title: Search for a string in a file
+    command: grep "error" app.log
+  - intent: search for text recursively
+    title: Search recursively in current directory
+    command: grep -r "TODO" .
+  - intent: show line numbers in search
+    title: Search with line numbers
+    command: grep -n "pattern" file.txt
+  - intent: case insensitive search
+    title: Case-insensitive search
+    command: grep -i "error" app.log
+  - intent: search for text recursively
+    title: Recursive, case-insensitive with line numbers
+    command: grep -rni "pattern" .
+  - intent: search only certain file types
+    title: Search only in TypeScript files
+    command: grep -r --include="*.ts" "interface" .
+  - intent: list files that contain string
+    title: Show only filenames that contain the match
+    command: grep -rl "TODO" .
+  - intent: count occurrences of string
+    title: Count number of matching lines
+    command: grep -c "error" app.log
+  - intent: find lines that do not match
+    title: Show lines that do NOT match
+    command: grep -v "debug" app.log
+  - intent: show lines before and after match
+    title: Show 3 lines of context around each match
+    command: grep -C 3 "error" app.log
+  - intent: show lines before and after match
+    title: Show 2 lines before and 2 after match
+    command: grep -B 2 -A 2 "error" app.log
+  - intent: search for whole word
+    title: Search for an exact whole word only
+    command: grep -w "fail" app.log
+  - intent: search for text recursively
+    title: Recursive search excluding node_modules
+    command: grep -r --exclude-dir=node_modules "TODO" .
+  - intent: search for text recursively
+    title: Recursive search for multiple patterns
+    command: grep -rE "error|warn|fatal" .
